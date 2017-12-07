@@ -1,14 +1,8 @@
-$(function(){
-	$('#form').bind('submit', function(e){
-		/*preventDefault evita que o
-		formulário seja enviado de forma
-		padronizada (recarregando a página).
-		O envio/requisição será feito via
-		ajax.*/
+$(function()
+{
+	$('#form').bind('submit', function(e)
+	{
 		e.preventDefault();
-		/*serialize() pega todos os dados
-		e formata para um padrão que o ajax
-		consiga utilizar (json).*/
 		var txt = $(this).serialize();
 		
 		$.ajax({
@@ -23,7 +17,7 @@ $(function(){
 					window.location.replace("logs.php");
 				}
 				else
-					alert("Usuário/Senha inseridos não existe!");
+					alert("Insira usuário e senha válidos!");
 			}
 		});
 	});

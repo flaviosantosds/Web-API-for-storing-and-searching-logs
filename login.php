@@ -22,7 +22,5 @@ if(mysql_num_rows($result)>0)
 	mysql_query("INSERT INTO tb_registro_log (id_produto, id_cliente, id_categoria, datahora_registro_log) VALUES ('$cliente_produto1', '$cliente1', 3, '$hoje')");
 }
 else
-{
 	$array['status']="Erro";
-}
 echo json_encode($array);

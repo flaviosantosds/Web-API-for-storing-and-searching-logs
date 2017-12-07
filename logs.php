@@ -1,26 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
-		<meta charset="utf-8"></meta>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 		<title>Desafio Audora</title>
 
 		<!-- bootstrap-->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
-		<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
-		<link href="jquery-ui/jquery-structure.css" rel="stylesheet">
-		<script src="jquery-ui/jquery-ui.js"></script>
-		<script src="jquery-ui/jquery-ui.theme.css"></script>
-		<script>
-			$(function() {
-			    $( "#datainicial" ).datepicker();
-			});
-		</script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
 	</head>
 	<body>
 		<?php
-
+			header("Content-Type: text/html; charset=ISO-8859-1",true);
 			mysql_connect('localhost', 'root','') or die(mysql_error());
 			mysql_select_db('db_desafio_audora') or die(mysql_error());
 		?>
@@ -39,6 +36,7 @@
 						<select id="cliente" class="form-control" name="selectCliente">
 							<option value="">--Selecione um cliente</option>
 							<?php
+
 								$query = mysql_query("SELECT id_cliente, nome_cliente FROM tb_cliente");
 
 								while ($cli = mysql_fetch_array($query)) {
@@ -81,18 +79,17 @@
 
 					<div class="col-md-3">
 						<span style="float: left;">
-							<label>De:</label> <input type="datetime" class="form-control" name="data_inicial" style="width: 125px;" placeholder="aaaa/mm/dd" id="datainicial"/>
+							<label>Entre:</label> <input type="datetime" class="form-control" name="data_inicial" style="width: 125px;" placeholder="aaaa-mm-dd" id="datainicial"/>
 						</span>
 						<span style="margin-top: 30px; margin-left:4px; float: left;">-</span>
 						<span style="float: right;">
-							<label>Até:</label> <input type="datetime" class="form-control" name="data_final" style="width: 125px;" placeholder="aaaa/mm/dd"/>
+							<input type="datetime" class="form-control" name="data_final" style="width: 125px; margin-top: 25px;" placeholder="aaaa-mm-dd"/>
 						</span>
 					</div>
 				</div>
 
 				<hr />		 
 				 
-
 				<div class="row">
 					<div class="col-md-4"></div>
 
@@ -116,9 +113,7 @@
 		          </tr>
 		        </thead>
 
-		        <tbody>
-		            
-		        </tbody>
+		        <tbody></tbody>
 	      </table>
 		</div>
 	</body>
